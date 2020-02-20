@@ -9,6 +9,7 @@
 * Un utilisateur a un premier centre d'intérêt : `L'informatique`
 * Un utilisateur a un deuxième centre d'intérêt : `Les gros cigares`
 * Un utilisateur a un troisième centre d'intérêt : `My Little Poney`
+* Un utilisateur a un/des ami(s) et un statut : `xX_KimMensDu37_Xx` a `PVR_theboss` comme ami de statut `confirmé` 
 
 ### WishList (définie par son nom et son utilisateur : `Noël 50BC` et `xX_KimMensDu37_Xx`)
 
