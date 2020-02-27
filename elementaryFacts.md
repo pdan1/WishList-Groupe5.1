@@ -2,7 +2,7 @@
 * Un utilisateur a un email : `kim.mens@caramail.com`
 * Un utilisateur a un mot de passe : `mo2pass2ouf`
 * Un utilisateur a un nom d'utilisateur : `Kim Mens`
-* Un utilisateur a une taille de vêtement : `40`
+* Un utilisateur a une taille de vêtement : `XL`
 * Un utilisateur a une photo de profil stocké à : `file:///assets/id.jpg`
 * Un utilisateur a une couleur préférée : `Jaune`
 * Un utilisateur a une adresse : `2 rue des fontainiers, 1483 Moulinsart`
@@ -10,10 +10,11 @@
 * Un utilisateur a un deuxième centre d'intérêt : `Les gros cigares`
 * Un utilisateur a un troisième centre d'intérêt : `My Little Poney`
 * Un utilisateur a un/des ami(s) et un statut : ami `PVR_theboss` de statut `confirmé` 
+* Un utilisateur a une permission (voir ou éditer) et une Liste de Souhaits: `PVR_theboss` a la permission `observateur` pour la Liste de Souhaits `Noël 50BC`
 
-### WishList (définie par son nom et son utilisateur : `Noël 50BC` et `xX_KimMensDu37_Xx`)
+### Liste de Souhaits (définie par son nom et son utilisateur : `Noël 50BC` et `xX_KimMensDu37_Xx`)
 
-### Shouhait (défini par son nom et sa wishlist : `Tongs` et `Noël 50BC`) : 
+### Souhait (défini par son nom et sa wishlist : `Tongs` et `Noël 50BC`) : 
 * Un shouhait a une quantité : `1`
 * Un shouhait a une degré d'envie : `4.5/5`
 * Un shouhait a un prix : `69€`
