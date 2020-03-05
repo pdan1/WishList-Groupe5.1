@@ -8,7 +8,7 @@ PRAGMA foreign_keys = OFF;
 
 -- Drop each tables if one exists
 DROP TABLE IF EXISTS Users;
-DROP TABLE IF EXISTS Wishlishts;
+DROP TABLE IF EXISTS Wishlists;
 DROP TABLE IF EXISTS Wishes;
 DROP TABLE IF EXISTS Accesses;
 DROP TABLE IF EXISTS Friends;
@@ -32,9 +32,9 @@ CREATE TABLE Users (
     interest3 STRING
 );
 
--- Create Wishlishts table
-CREATE TABLE Wishlishts (
-    lishtid STRING NOT NULL UNIQUE PRIMARY KEY,
+-- Create Wishlists table
+CREATE TABLE Wishlists (
+    listid STRING NOT NULL UNIQUE PRIMARY KEY,
     name    STRING NOT NULL,
     userid  STRING NOT NULL REFERENCES Users (userid),
     desc    STRING,
@@ -45,23 +45,23 @@ CREATE TABLE Wishlishts (
 CREATE TABLE Wishes (
     wishid    STRING NOT NULL UNIQUE PRIMARY KEY,
     name      STRING NOT NULL,
-    lishtid   INT    NOT NULL REFERENCES Wishlishts (lishtid),
+    listid   INT    NOT NULL REFERENCES Wishlists (listid),
     amount    INT    NOT NULL,
     link      STRING,
     wishrate  INT,
     price     INT,
     pict      STRING,
     desc      TEXT,
-    UNIQUE (name, lishtid)
+    UNIQUE (name, listid)
 );
 
 -- Create Accesses table
 CREATE TABLE Accesses (
     userid  STRING NOT NULL REFERENCES Users (userid),
-    lishtid STRING NOT NULL REFERENCES Wishlishts (lishtid),
+    listid STRING NOT NULL REFERENCES Wishlists (listid),
     perm    STRING NOT NULL,
-    PRIMARY KEY (userid, lishtid),
-    UNIQUE (userid, lishtid, perm)
+    PRIMARY KEY (userid, listid),
+    UNIQUE (userid, listid, perm)
 );
 
 -- Create Friends table
@@ -86,9 +86,9 @@ INSERT INTO Users VALUES
     ('Juli1',             'juju.1@hotmail.com',      'Juju',            'chaussettes', 'red',   'XL', 'file:///assets/id_juju.jpg',    '8, Rue Alfred Houel, 14830, Langrunes sur Mer',               'videogames',  'tumblr',       'yu-gi-oh'),
     ('4lisse',            'alice.bridge@skynet.be',  'WitchyMess',      'sphoria',     'black', 'L',  'file:///assets/id_abridge.jpg', '42, Boulevard Matignon, 54808, Marne-la-Vallée',              'piercings',   'makeup',       'beers');
 
--- Add wishlishts
-INSERT INTO Wishlishts VALUES
---   lishtid name                         userid      desc
+-- Add wishlists
+INSERT INTO Wishlists VALUES
+--   listid name                         userid      desc
     ('1',    'Xmas 2021',                 'Austry',   'What I whish to receive for christmas !'),
     ('2',    'Video Games',               'Juli1',    'Video Games I want to play.'),
     ('3',    '2Watch',                    'Frenchton', 'Episodes, Series & Movies I want to watch soon.'),
@@ -96,7 +96,7 @@ INSERT INTO Wishlishts VALUES
 
 -- Add wishes
 INSERT INTO Wishes VALUES
---   wishid  name                 lishtid amount link                                        wishrate price  pict                                                    desc
+--   wishid  name                 listid amount link                                        wishrate price  pict                                                    desc
     ('1',    'cute whale',        '4',    1,     'www.bridge-ink.be/designs/cute_whale.html', 3,       4000,  'file:///assets/bridge-ink/cute_whale.jpg',            'Dimension (mm): 50x36'),
     ('2',    'infernal skull',    '4',    1,     'www.bridge-ink.be/designs/cute_whale.html', 5,       12000, 'file:///assets/bridge-ink/infernal_skull.jpg',        'Dimension (mm): 265x74'),
     ('3',    'demonic succub',    '4',    1,     'www.bridge-ink.be/designs/cute_whale.html', 4,       9000,  'file:///assets/bridge-ink/demon_succub.jpg',          'Dimension (mm): 186x131'),
@@ -112,7 +112,7 @@ INSERT INTO Wishes VALUES
     ('13',   'Casa del Papel',    '3',    1,     'www.netflix.com',                           3,       NULL,  'file:///assets/netflix/thumbnails/casa-del-papel.jpg', NULL);
 
 INSERT INTO Accesses VALUES
---   userid       lishtid perm
+--   userid       listid perm
     ('Austry',    '4',    'read'),
     ('Frenchton', '4',    'read'),
     ('Juli1',     '4',    'read'),
