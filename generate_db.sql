@@ -7,11 +7,11 @@
 PRAGMA foreign_keys = OFF;
 
 -- Drop each tables if one exists
-DROP TABLE IF EXISTS Users;
-DROP TABLE IF EXISTS Wishlists;
-DROP TABLE IF EXISTS Wishes;
-DROP TABLE IF EXISTS Accesses;
 DROP TABLE IF EXISTS Friends;
+DROP TABLE IF EXISTS Accesses;
+DROP TABLE IF EXISTS Wishes;
+DROP TABLE IF EXISTS Wishlists;
+DROP TABLE IF EXISTS Users;
 
 -------------------------------------------------------------------------------
 -- Create tables
