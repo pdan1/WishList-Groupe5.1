@@ -1,4 +1,4 @@
-package net.austreelis.apptest;
+package net.austreelis.wishlisht;
 
 import org.junit.Test;
 

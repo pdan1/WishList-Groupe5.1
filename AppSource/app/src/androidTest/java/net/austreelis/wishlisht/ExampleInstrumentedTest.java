@@ -1,4 +1,4 @@
-package net.austreelis.apptest;
+package net.austreelis.wishlisht;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
