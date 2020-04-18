@@ -47,9 +47,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/genericHeightSmall"
                         android:layout_marginBottom="@dimen/genericMargin"
-                        android:background="@color/white"
                         android:inputType="textNoSuggestions"
-                        android:text="@string/loginFieldDefaultText"
+                        android:text=""
                         android:gravity="center_vertical|start"
                         android:autoSizeTextType="uniform"
                         android:autofillHints="@string/loginFieldHint"
@@ -59,7 +58,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/genericHeightSmall"
                         android:layout_marginBottom="@dimen/genericMargin"
-                        android:background="@color/white"
                         android:inputType="textPassword"
                         android:text=""
                         android:gravity="center_vertical|start"
@@ -80,7 +78,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/genericHeightSmall"
                         android:background="@color/accent"
-                        android:id="@+id/connectRegisterButton"/>
+                        android:onClick="register"
+                        android:id="@+id/connectRegisterButton" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>

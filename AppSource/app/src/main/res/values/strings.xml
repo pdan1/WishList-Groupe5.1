@@ -1,8 +1,17 @@
 <resources>
-    <string name="appName">Wishlisht</string>
+    <string name="appName">WishList</string>
     <string name="loginFieldDefaultText">Login</string>
     <string name="loginFieldHint">Login</string>
+    <string name="emailFieldHint">Email</string>
+    <string name="pursueButtonText">Continue</string>
+    <string name="emailCheckCodeFieldHint">Code</string>
+    <string name="emailCheckCodeMessage">We\'ve sent you an email with a confirmation code !</string>
+    <string name="confirmationFieldHint">Confirm</string>
     <string name="passwordFieldHint">Password</string>
     <string name="loginButtonText">Log in</string>
     <string name="registerButtonText">Create An Account</string>
+
+    <string name="errorMandatory">All fields are mandatory !</string>
+    <string name="errorNoMatch">Fields must be the same !</string>
+
 </resources>
