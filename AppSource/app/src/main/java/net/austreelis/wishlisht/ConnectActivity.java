@@ -7,7 +7,9 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class ConnectActivity extends AppCompatActivity {
+import net.austreelis.wishlisht.interfaces.NavBarInterface;
+
+public class ConnectActivity extends AppCompatActivity{
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +24,4 @@ public class ConnectActivity extends AppCompatActivity {
     Intent intent = new Intent(this, RegisterActivity.class);
     startActivity(intent);
   }
-
 }

@@ -51,15 +51,13 @@
                     android:gravity="center_vertical|start"
                     android:autoSizeTextType="uniform"
                     android:autofillHints="@string/emailCheckCodeFieldHint"
-                    android:hint="@string/emailFieldHint"
+                    android:hint="@string/emailCheckCodeFieldHint"
                     android:inputType="number"
                     android:id="@+id/emailCheckCodeField"/>
 
                 <Button
                     android:text="@string/pursueButtonText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/genericHeightSmall"
-                    android:background="@color/accent"
+                    style="@style/ClassicButton"
                     android:onClick="provideEmailCheckCode"
                     android:id="@+id/registerSecondStepButton"/>
             </LinearLayout>

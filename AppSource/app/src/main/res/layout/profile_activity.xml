@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    >
+    <include layout="@layout/navbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="157dp"
+                        android:contentDescription="profile-pic"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/avatar" />
+
+                    <Button
+                        android:id="@+id/modifyImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="changePic"
+                        android:text="@string/modifyButtonText" />
+
+                    <Button
+                        android:id="@+id/saveButton"
+                        style="@style/GoodButton"
+                        android:layout_width="137dp"
+                        android:onClick="resetData"
+                        android:layout_height="wrap_content"
+                        android:text="@string/saveButtonText" />
+
+                    <Button
+                        android:id="@+id/resetButton"
+                        style="@style/ClassicButton"
+                        android:layout_width="141dp"
+                        android:onClick="saveData"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resetButtonText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/loginField"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:hint="@string/loginFieldHint"
+                            android:inputType="text"
+                            android:text="Jacob" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="82dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailField"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:hint="@string/emailFieldHint"
+                            android:inputType="textEmailAddress"
+                            android:text="jacob@laterrepromise.is" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/passwordField"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:hint="@string/passwordFieldHint"
+                            android:inputType="textPassword" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/secondConfirmationField"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:hint="@string/confirmationFieldHint"
+                            android:inputType="textPassword"
+                            android:text="" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

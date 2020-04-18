@@ -6,4 +6,5 @@
     <color name="accent">#18b4ff</color>
     <color name="dark">#000000</color>
     <color name="error">#C90000</color>
+    <color name="success">#4CAF50</color>
 </resources>

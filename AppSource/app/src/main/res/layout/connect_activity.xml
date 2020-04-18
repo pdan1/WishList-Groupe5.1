@@ -65,19 +65,14 @@
                         android:autofillHints="@string/passwordFieldHint"
                         android:hint="@string/passwordFieldHint"
                         android:id="@+id/connectPasswordField"/>
+
                 <Button
-                        android:text="@string/loginButtonText"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/genericHeightSmall"
-                        android:layout_marginTop="@dimen/genericMargin"
-                        android:layout_marginBottom="@dimen/genericMargin"
-                        android:background="@color/accent"
-                        android:id="@+id/connectLoginButton"/>
+                    android:id="@+id/connectLoginButton"
+                    style="@style/ClassicButton"
+                    android:text="@string/loginButtonText" />
                 <Button
                         android:text="@string/registerButtonText"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/genericHeightSmall"
-                        android:background="@color/accent"
+                        style="@style/ClassicButton"
                         android:onClick="register"
                         android:id="@+id/connectRegisterButton" />
             </LinearLayout>

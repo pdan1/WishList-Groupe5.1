@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends MainActivity {
 
     private String login, email, password1, password2, emailCode;
 
@@ -62,13 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        setContentView(R.layout.register_activity_pass);
+        setContentView(R.layout.profile_activity);
 
-    }
-
-    private void generateError(int errorMsg){
-        TextView dialogBox = (TextView)findViewById(R.id.dialogBox);
-        dialogBox.setText(errorMsg);
-        dialogBox.setTextColor(getResources().getColor(R.color.error));
     }
 }

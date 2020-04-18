@@ -15,4 +15,27 @@
   <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="ClassicButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/genericHeightSmall</item>
+        <item name="android:layout_marginTop">@dimen/genericMargin</item>
+        <item name="android:layout_marginBottom">@dimen/genericMargin</item>
+        <item name="android:background">@color/accent</item>
+    </style>
+    <style name="GoodButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/genericHeightSmall</item>
+        <item name="android:layout_marginTop">@dimen/genericMargin</item>
+        <item name="android:layout_marginBottom">@dimen/genericMargin</item>
+        <item name="android:background">@color/success</item>
+    </style>
+
+    <style name="BadButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/genericHeightSmall</item>
+        <item name="android:layout_marginTop">@dimen/genericMargin</item>
+        <item name="android:layout_marginBottom">@dimen/genericMargin</item>
+        <item name="android:background">@color/error</item>
+    </style>
+
 </resources>

@@ -66,9 +66,7 @@
 
                 <Button
                     android:text="@string/pursueButtonText"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/genericHeightSmall"
-                    android:background="@color/accent"
+                    style="@style/ClassicButton"
                     android:onClick="provideBaseInfo"
                     android:id="@+id/registerFirstStepButton"/>
 
