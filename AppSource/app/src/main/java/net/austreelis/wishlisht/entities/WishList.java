@@ -5,8 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Wishlists", indices = {@Index(value = {"name","userid"}, unique = true)})
+@Entity(tableName = "Wishlists", primaryKeys = {"name","userid"})
 public class WishList {
 
     public WishList(@NonNull String name, @NonNull String userid, String desc) {

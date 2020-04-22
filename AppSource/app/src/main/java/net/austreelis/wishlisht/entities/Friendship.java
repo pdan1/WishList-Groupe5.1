@@ -5,8 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Friends", indices = {@Index(value = {"userid1", "userid2"}, unique = true)})
+@Entity(tableName = "Friends", primaryKeys =  {"userid1", "userid2"})
 public class Friendship {
 
     public Friendship(@NonNull String userid1, @NonNull String userid2, @NonNull String status) {

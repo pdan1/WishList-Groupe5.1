@@ -8,10 +8,13 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Users")
 public class User {
 
-    public User(@NonNull String email, @NonNull String name, @NonNull String password) {
+    public User(@NonNull String userid, @NonNull String email, @NonNull String name, @NonNull String password, @NonNull String color, @NonNull String size) {
+        this.userid = userid;
         this.email = email;
         this.name = name;
         this.password = password;
+        this.color = color;
+        this.size = size;
     }
 
     @PrimaryKey
@@ -39,23 +42,18 @@ public class User {
     @ColumnInfo(name = "size", defaultValue = "M")
     private String size;
 
-    @NonNull
     @ColumnInfo(name = "pict", defaultValue = "@drawable/avatar")
     private String pict;
 
-    @NonNull
     @ColumnInfo(name = "address")
     private String address;
 
-    @NonNull
     @ColumnInfo(name = "interest1")
     private String interest1;
 
-    @NonNull
     @ColumnInfo(name = "interest2")
     private String interest2;
 
-    @NonNull
     @ColumnInfo(name = "interest3")
     private String interest3;
 

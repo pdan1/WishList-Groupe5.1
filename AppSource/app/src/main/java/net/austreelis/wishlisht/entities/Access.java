@@ -5,8 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Accesses", indices = {@Index(value = {"userid", "list", "ownerid"}, unique = true)})
+@Entity(tableName = "Accesses", primaryKeys = {"userid", "list", "ownerid"})
 
 public class Access {
 

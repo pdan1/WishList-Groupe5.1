@@ -7,7 +7,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Wishes", indices = {@Index(value = {"name", "list", "userid"}, unique = true)})
+@Entity(tableName = "Wishes", primaryKeys = {"userid","list","name"})
 
 public class Wish {
 

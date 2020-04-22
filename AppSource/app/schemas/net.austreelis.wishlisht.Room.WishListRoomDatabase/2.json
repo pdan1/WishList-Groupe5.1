@@ -1,12 +1,12 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "e3a49fc83553ad430ba352fad1334827",
+    "version": 2,
+    "identityHash": "bf7e19fd7586f5b021746c3c705345fa",
     "entities": [
       {
         "tableName": "Users",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userid` TEXT NOT NULL, `email` TEXT NOT NULL, `name` TEXT NOT NULL, `password` TEXT NOT NULL, `color` TEXT NOT NULL DEFAULT 'black', `size` TEXT NOT NULL DEFAULT 'M', `pict` TEXT NOT NULL DEFAULT '@drawable/avatar', `address` TEXT NOT NULL, `interest1` TEXT NOT NULL, `interest2` TEXT NOT NULL, `interest3` TEXT NOT NULL, PRIMARY KEY(`userid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userid` TEXT NOT NULL, `email` TEXT NOT NULL, `name` TEXT NOT NULL, `password` TEXT NOT NULL, `color` TEXT NOT NULL DEFAULT 'black', `size` TEXT NOT NULL DEFAULT 'M', `pict` TEXT DEFAULT '@drawable/avatar', `address` TEXT, `interest1` TEXT, `interest2` TEXT, `interest3` TEXT, PRIMARY KEY(`userid`))",
         "fields": [
           {
             "fieldPath": "userid",
@@ -50,32 +50,32 @@
             "fieldPath": "pict",
             "columnName": "pict",
             "affinity": "TEXT",
-            "notNull": true,
+            "notNull": false,
             "defaultValue": "'@drawable/avatar'"
           },
           {
             "fieldPath": "address",
             "columnName": "address",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "interest1",
             "columnName": "interest1",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "interest2",
             "columnName": "interest2",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "interest3",
             "columnName": "interest3",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -267,7 +267,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e3a49fc83553ad430ba352fad1334827')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'bf7e19fd7586f5b021746c3c705345fa')"
     ]
   }
 }

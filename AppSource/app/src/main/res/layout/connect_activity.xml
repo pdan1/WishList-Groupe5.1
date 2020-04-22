@@ -31,50 +31,67 @@
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="@dimen/genericUIMediumWidth"
+                android:layout_width="@dimen/genericUIMediumWidth"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2">
+
+                <TextView
+                    android:id="@+id/dialogBox"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="100dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="56dp"
+                    android:text=""
+                    android:textColor="@color/dark"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/genericHeightSmall"
-                        android:layout_marginBottom="@dimen/genericMargin"
-                        android:inputType="textNoSuggestions"
-                        android:text=""
-                        android:gravity="center_vertical|start"
-                        android:autoSizeTextType="uniform"
-                        android:autofillHints="@string/loginFieldHint"
-                        android:hint="@string/loginFieldHint"
-                        android:id="@+id/connectLoginField"/>
+                    android:id="@+id/connectLoginField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/genericHeightSmall"
+                    android:layout_marginBottom="@dimen/genericMargin"
+                    android:autoSizeTextType="uniform"
+                    android:autofillHints="@string/loginFieldHint"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/loginFieldHint"
+                    android:inputType="textNoSuggestions"
+                    android:text="" />
+
                 <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/genericHeightSmall"
-                        android:layout_marginBottom="@dimen/genericMargin"
-                        android:inputType="textPassword"
-                        android:text=""
-                        android:gravity="center_vertical|start"
-                        android:autoSizeTextType="uniform"
-                        android:autofillHints="@string/passwordFieldHint"
-                        android:hint="@string/passwordFieldHint"
-                        android:id="@+id/connectPasswordField"/>
+                    android:id="@+id/connectPasswordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/genericHeightSmall"
+                    android:layout_marginBottom="@dimen/genericMargin"
+                    android:autoSizeTextType="uniform"
+                    android:autofillHints="@string/passwordFieldHint"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/passwordFieldHint"
+                    android:inputType="textPassword"
+                    android:text="" />
 
                 <Button
                     android:id="@+id/connectLoginButton"
                     style="@style/ClassicButton"
+                    android:onClick="login"
                     android:text="@string/loginButtonText" />
+
                 <Button
-                        android:text="@string/registerButtonText"
-                        style="@style/ClassicButton"
-                        android:onClick="register"
-                        android:id="@+id/connectRegisterButton" />
+                    android:id="@+id/connectRegisterButton"
+                    style="@style/ClassicButton"
+                    android:onClick="register"
+                    android:text="@string/registerButtonText" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>

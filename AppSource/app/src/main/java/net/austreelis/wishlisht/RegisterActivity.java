@@ -3,10 +3,19 @@ package net.austreelis.wishlisht;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import net.austreelis.wishlisht.Room.WishListRoomDatabase;
+import net.austreelis.wishlisht.entities.User;
+import net.austreelis.wishlisht.entities.WishList;
+import net.austreelis.wishlisht.interfaces.DAO.UserDao;
+import net.austreelis.wishlisht.interfaces.DAO.WishListDao;
 
 public class RegisterActivity extends MainActivity {
 
@@ -17,6 +26,7 @@ public class RegisterActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity_base_info);
         Toolbar toolbar = findViewById(R.id.bigTitleToolbar);
+
         setSupportActionBar(toolbar);
     }
 
@@ -27,6 +37,10 @@ public class RegisterActivity extends MainActivity {
 
         if(this.login.equals("")||this.email.equals("")){
             this.generateError(R.string.errorMandatory);
+            return;
+        }
+        if(this.udao.loadUser(this.login).length!=0){
+            this.generateError(R.string.errorUsernameAlreadyExists);
             return;
         }
 
@@ -62,7 +76,12 @@ public class RegisterActivity extends MainActivity {
             return;
         }
 
-        setContentView(R.layout.profile_activity);
+        u = new User(login,email, login, password1, "black", "M");
+        udao.insert(u);
+
+        Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("user", (new Gson()).toJson(u));
+        startActivity(intent);
 
     }
 }

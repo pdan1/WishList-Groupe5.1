@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import net.austreelis.wishlisht.entities.User;
 
@@ -11,13 +12,18 @@ import net.austreelis.wishlisht.entities.User;
 public interface UserDao {
 
     @Insert
-    void insert(User word);
+    void insert(User u);
+
+    @Update
+    int updateUser(User ... u);
 
     @Query("SELECT * FROM Users WHERE userid=:userid")
-    public User[] loadUser(String userid);
+    User[] loadUser(String userid);
 
-    @Query("SELECT * FROM Users WHERE userId=:userId AND password=:password")
-    public User[] loginUser(String userId, String password);
+    @Query("SELECT * FROM Users WHERE userid=:userId AND password=:password")
+    User[] loginUser(String userId, String password);
+
+
 
 
 }
