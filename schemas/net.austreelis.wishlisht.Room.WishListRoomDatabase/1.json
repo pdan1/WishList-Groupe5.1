@@ -1,0 +1,97 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "34be8e93fdfce87a194ae96ea7dd9ff1",
+    "entities": [
+      {
+        "tableName": "Users",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userid` TEXT NOT NULL, `email` TEXT NOT NULL, `name` TEXT NOT NULL, `password` TEXT NOT NULL, `color` TEXT NOT NULL DEFAULT 'black', `size` TEXT NOT NULL DEFAULT 'M', `pict` TEXT NOT NULL DEFAULT '@drawable/avatar', `address` TEXT NOT NULL, `interest1` TEXT NOT NULL, `interest2` TEXT NOT NULL, `interest3` TEXT NOT NULL, PRIMARY KEY(`userid`))",
+        "fields": [
+          {
+            "fieldPath": "userid",
+            "columnName": "userid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'black'"
+          },
+          {
+            "fieldPath": "size",
+            "columnName": "size",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'M'"
+          },
+          {
+            "fieldPath": "pict",
+            "columnName": "pict",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'@drawable/avatar'"
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "interest1",
+            "columnName": "interest1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "interest2",
+            "columnName": "interest2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "interest3",
+            "columnName": "interest3",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "userid"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '34be8e93fdfce87a194ae96ea7dd9ff1')"
+    ]
+  }
+}

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import net.austreelis.wishlisht.interfaces.DialogBoxInterface;
 
-public class MainActivity extends AppCompatActivity implements DialogBoxInterface {
+abstract class MainActivity extends AppCompatActivity implements DialogBoxInterface {
 
     public void generateError(int errorMsg){
         TextView dialogBox = (TextView)findViewById(R.id.dialogBox);
