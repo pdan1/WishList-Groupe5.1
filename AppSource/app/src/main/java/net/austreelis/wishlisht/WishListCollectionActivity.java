@@ -20,6 +20,7 @@ import net.austreelis.wishlisht.interfaces.NavBarInterface;
 
 public class WishListCollectionActivity extends MainActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wishlist_collection_activity);
@@ -29,5 +30,10 @@ public class WishListCollectionActivity extends MainActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));*/
     }
+
+    public void showPopup(View view){
+        this.showPopup(view, R.layout.wishlist_creation_popup, false);
+    }
+
 
 }

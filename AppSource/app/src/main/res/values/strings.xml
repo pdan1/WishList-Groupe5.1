@@ -35,4 +35,7 @@
 
     <string name="addWishlist">New wishlist</string>
 
+    <string name="wishListNameFieldHint">Name</string>
+    <string name="wishListDescFieldHint">Short description</string>
+
 </resources>

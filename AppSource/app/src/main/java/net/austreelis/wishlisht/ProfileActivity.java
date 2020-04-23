@@ -76,5 +76,11 @@ public class ProfileActivity extends MainActivity {
 
     }
 
+    public void logout(View view){
+        u=null;
+        Intent intent = new Intent(this, ConnectActivity.class);
+        startActivity(intent);
+    }
+
 
 }
