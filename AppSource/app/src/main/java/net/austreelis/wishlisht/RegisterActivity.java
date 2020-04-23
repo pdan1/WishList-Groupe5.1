@@ -76,7 +76,7 @@ public class RegisterActivity extends MainActivity {
             return;
         }
 
-        u = new User(login,email, login, password1, "black", "M");
+        u = new User(login, email, login, password1, "black", "M");
         udao.insert(u);
 
         Intent intent = new Intent(this, ProfileActivity.class);

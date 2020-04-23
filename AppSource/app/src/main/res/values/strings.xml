@@ -35,4 +35,8 @@
 
     <string name="addWishlist">New wishlist</string>
 
+    <string name="alreadyFriends">You are already friends.</string>
+    <string name="alreadyPending">You have already sent an invitation to this person.</string>
+    <string name="userDoesNotExist">This user doesn\'t exist.</string>
+
 </resources>
