@@ -1,8 +1,38 @@
 <resources>
-    <string name="appName">Wishlisht</string>
+    <string name="appName">WishList</string>
+
     <string name="loginFieldDefaultText">Login</string>
     <string name="loginFieldHint">Login</string>
+    <string name="emailFieldHint">Email</string>
+    <string name="pursueButtonText">Continue</string>
+    <string name="emailCheckCodeFieldHint">Code</string>
+    <string name="emailCheckCodeMessage">We\'ve sent you an email with a confirmation code !</string>
+    <string name="confirmationFieldHint">Confirm</string>
     <string name="passwordFieldHint">Password</string>
     <string name="loginButtonText">Log in</string>
     <string name="registerButtonText">Create An Account</string>
+
+    <string name="colorFieldText">Color</string>
+    <string name="addressFieldText">Shipping address</string>
+    <string name="interestFieldText">Hobby</string>
+    <string name="sizeFieldText">Size</string>
+    <string name="newPasswordFieldHint">New Password</string>
+
+    <string name="saveButtonText">Save</string>
+    <string name="resetButtonText">Reset</string>
+
+    <string name="errorMandatory">All fields are mandatory !</string>
+    <string name="errorNoMatch">Fields must be the same !</string>
+    <string name="errorUsernameAlreadyExists">This username has already been taken.</string>
+    <string name="errorDoesNotExist">This does not exist !</string>
+    <string name="errorOccuredUpdate">An error occured - data not updated.</string>
+    <string name="errorLoginDenied">Wrong password - login combinaison.</string>
+    <string name="errorPasswordMissing">Please specify your password.</string>
+
+    <string name="successUpdate">Informations were successfully updated !</string>
+
+    <string name="modifyButtonText">Modify</string>
+
+    <string name="addWishlist">New wishlist</string>
+
 </resources>

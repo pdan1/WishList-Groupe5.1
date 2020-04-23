@@ -2,15 +2,8 @@
 -- File generated with SQLiteStudio v3.2.1 on mer. avr. 22 15:15:11 2020
 --
 -- Text encoding used: System
--- 
-
+--
 PRAGMA foreign_keys = off;
-DROP TABLE Accesses;
-DROP TABLE Friends;
-DROP TABLE Wishes;
-DROP TABLE Wishlists;
-DROP TABLE Users;
-
 BEGIN TRANSACTION;
 
 -- Table: Accesses
@@ -85,9 +78,9 @@ INSERT INTO Friends (userid1, userid2, status) VALUES ('4lisse', 'Frenchton', 'a
 
 
 INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('Austry', 'morgane.14@caramail.com', 'Morgane Leclerc', 'vlctuxf', 'mauve', 'XS', 'file:///assets/id_austry.jpg', '12, Rue de Constantinople, 1348, Ottignies-Louvain-la-Neuve', 'linux', 'diving', 'jewels');
-INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('Frenchton', 'anton.levrai@yahoo.com', 'Anton Le Preu', 'abalanglai', 'bleu', 'M', 'file:///assets/id_lepreu.jpg', '564, Avenue du DÃ©barquement, 4862, Tataouine-les-Bains', 'french', 'crochet', 'swedish');
+INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('Frenchton', 'anton.levrai@yahoo.com', 'Anton Le Preu', 'abalanglai', 'bleu', 'M', 'file:///assets/id_lepreu.jpg', '564, Avenue du Débarquement, 4862, Tataouine-les-Bains', 'french', 'crochet', 'swedish');
 INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('Juli1', 'juju.1@hotmail.com', 'Juju', 'chaussettes', 'red', 'XL', 'file:///assets/id_juju.jpg', '8, Rue Alfred Houel, 14830, Langrunes sur Mer', 'videogames', 'tumblr', 'yu-gi-oh');
-INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('4lisse', 'alice.bridge@skynet.be', 'WitchyMess', 'sphoria', 'black', 'L', 'file:///assets/id_abridge.jpg', '42, Boulevard Matignon, 54808, Marne-la-VallÃ©e', 'piercings', 'makeup', 'beers');
+INSERT INTO Users (userid, email, name, password, color, size, pict, address, interest1, interest2, interest3) VALUES ('4lisse', 'alice.bridge@skynet.be', 'WitchyMess', 'sphoria', 'black', 'L', 'file:///assets/id_abridge.jpg', '42, Boulevard Matignon, 54808, Marne-la-Vallée', 'piercings', 'makeup', 'beers');
 
 
 INSERT INTO Wishes (name, list, userid, amount, link, wishrate, price, pict, "desc") VALUES ('cute whale', 'Bridge Ink Tattoo Designs', '4lisse', 1, 'www.bridge-ink.be/designs/cute_whale.html', 3, 4000, 'file:///assets/bridge-ink/cute_whale.jpg', 'Dimension (mm): 50x36');
