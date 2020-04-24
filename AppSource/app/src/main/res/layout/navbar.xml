@@ -44,9 +44,9 @@
             android:adjustViewBounds="false"
             android:background="@null"
             android:cropToPadding="false"
+            android:onClick="navigateToFriends"
             android:padding="20dp"
             android:scaleType="fitCenter"
-            android:onClick="navigateToFriends"
             app:srcCompat="@drawable/ic_supervisor_account_white_18dp" />
 
         <ImageButton

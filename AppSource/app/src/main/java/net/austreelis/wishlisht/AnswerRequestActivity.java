@@ -2,6 +2,7 @@ package net.austreelis.wishlisht;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,31 +16,56 @@ import java.util.ArrayList;
 
 public class AnswerRequestActivity extends MainActivity {
     User[] users;
-    ArrayList<String> pending= new ArrayList<>();
+    ArrayList<String> pending;
+    ArrayList<String> all;
     ArrayAdapter<String> adapter;
-    ListView list = findViewById(R.id.listOfRequests);
+    ArrayAdapter<String> adapterAll;
+    ListView list;
+    ListView listAll;
     protected FriendshipDao friendshipDao;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.temp_answer_request);
         Toolbar toolbar = findViewById(R.id.bigTitleToolbar);
+
         bdd = WishListRoomDatabase.getDatabase(this);
         friendshipDao = bdd.friendshipDao();
-        setSupportActionBar(toolbar);
-    }
 
-    public void answer(View view) {
-        // Check si on a une demande d'ami
+        setSupportActionBar(toolbar);
+
+        list = findViewById(R.id.listOfRequests);
+        listAll = findViewById(R.id.allUsers);
+
+        pending = new ArrayList<>();
+        all = new ArrayList<>();
+
         users = this.udao.loadAllUsers();
+
+        list.setClickable(true);
+        list.setOnItemClickListener((arg0, arg1, position, arg3) -> {
+            Object o = list.getItemAtPosition(position);
+            System.out.println(o.toString());
+        });
+
         for (User user : users) {
-            if(friendshipDao.loadFriendshipStatus(u.getName(), user.getName())[0] == "pending") {
+            if(friendshipDao.loadFriendshipStatus(u.getName(), user.getName()).length > 0 && friendshipDao.loadFriendshipStatus(u.getName(), user.getName())[0] == "pending") {
                 pending.add(user.getName());
             }
         }
-        adapter=new ArrayAdapter<String>(this,
+        adapter=new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1,
                 pending);
         list.setAdapter(adapter);
-        // Répondre
+
+        for (User user : users) {
+            all.add(user.getName().concat((u.getName().equals(user.getName()))?" (you)":""));
+        }
+        adapterAll=new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1,
+                all);
+        listAll.setAdapter(adapterAll);
+    }
+
+    public void answer(View view) {
     }
 }

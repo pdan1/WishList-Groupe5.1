@@ -43,6 +43,8 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
 
     public void navigateToFriends(View view) {
         Intent intent = new Intent(this, AnswerRequestActivity.class);
+        intent.putExtra("user", (new Gson()).toJson(u));
+        startActivity(intent);
     }
 
     public void navigateToProfile(View view) {
