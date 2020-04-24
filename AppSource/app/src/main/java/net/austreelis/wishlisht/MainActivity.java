@@ -18,7 +18,6 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
 
     protected WishListRoomDatabase bdd;
     protected UserDao udao;
-
     protected User u;
 
     @Override
@@ -43,7 +42,7 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
     }
 
     public void navigateToFriends(View view) {
-
+        Intent intent = new Intent(this, AnswerRequestActivity.class);
     }
 
     public void navigateToProfile(View view) {

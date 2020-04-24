@@ -20,6 +20,9 @@ public interface UserDao {
     @Query("SELECT * FROM Users WHERE userid=:userid")
     User[] loadUser(String userid);
 
+    @Query("SELECT * FROM Users")
+    User[] loadAllUsers();
+
     @Query("SELECT * FROM Users WHERE userid=:userId AND password=:password")
     User[] loginUser(String userId, String password);
 
