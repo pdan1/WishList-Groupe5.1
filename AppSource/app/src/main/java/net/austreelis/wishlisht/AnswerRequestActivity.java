@@ -41,11 +41,11 @@ public class AnswerRequestActivity extends MainActivity {
 
         users = this.udao.loadAllUsers();
 
-        listAll.setClickable(true);
-        listAll.setOnItemClickListener((arg0, arg1, position, arg3) -> {
-            Object o = listAll.getItemAtPosition(position);
+        list.setClickable(true);
+        list.setOnItemClickListener((arg0, arg1, position, arg3) -> {
+            Object o = list.getItemAtPosition(position);
             System.out.println(o.toString());
-            //friendshipDao.loadFriendshipStatus(u.getName(), o.toString())[0] = "friend";
+            friendshipDao.setFriendStatus(u.getUserid(),o.toString(),"approved");
         });
 
         for (User user : users) {
