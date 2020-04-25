@@ -13,7 +13,9 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".RegisterActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ProfileActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".FriendsListActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".WishListCollectionActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".FriendsActivity" android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ConnectActivity"
             android:label="@string/appName"

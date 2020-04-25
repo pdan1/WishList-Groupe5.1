@@ -58,9 +58,7 @@ public class User {
     private String interest3;
 
     @NonNull
-    public String getUserid() {
-        return userid;
-    }
+    public String getUserid() { return userid; }
 
     public void setUserid(@NonNull String userId) {
         this.userid = userId;

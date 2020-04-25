@@ -57,9 +57,9 @@
             android:adjustViewBounds="false"
             android:background="@null"
             android:cropToPadding="false"
+            android:onClick="navigateToWishLists"
             android:padding="20dp"
             android:scaleType="fitCenter"
-            android:onClick="navigateToWishLists"
             app:srcCompat="@drawable/ic_list_white_18dp" />
     </LinearLayout>
 

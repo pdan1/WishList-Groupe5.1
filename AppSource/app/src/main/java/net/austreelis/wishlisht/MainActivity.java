@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import net.austreelis.wishlisht.Room.WishListRoomDatabase;
 import net.austreelis.wishlisht.entities.User;
 import net.austreelis.wishlisht.interfaces.DAO.UserDao;
+import net.austreelis.wishlisht.interfaces.DAO.FriendshipDao;
 import net.austreelis.wishlisht.interfaces.DialogBoxInterface;
 
 abstract class MainActivity extends AppCompatActivity implements DialogBoxInterface {
@@ -43,7 +44,15 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
     }
 
     public void navigateToFriends(View view) {
+        Intent intent = new Intent(this, FriendsListActivity.class);
+        intent.putExtra("user", (new Gson()).toJson(u));
+        startActivity(intent);
+    }
 
+    public void navigateToAddFriends(View view) {
+        Intent intent = new Intent(this, FriendsActivity.class);
+        intent.putExtra("user", (new Gson()).toJson(u));
+        startActivity(intent);
     }
 
     public void navigateToProfile(View view) {
