@@ -7,6 +7,8 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import static androidx.room.ForeignKey.CASCADE;
+
 @Entity(tableName = "Wishes", primaryKeys = {"userid","list","name"})
 
 public class Wish {
@@ -20,12 +22,12 @@ public class Wish {
     private String name;
 
     @NonNull
-    @ForeignKey(entity=WishList.class, parentColumns = "name", childColumns = "list")
+    @ForeignKey(entity=WishList.class, parentColumns = "name", childColumns = "list", onDelete = CASCADE)
     @ColumnInfo(name = "list")
     private int list;
 
     @NonNull
-    @ForeignKey(entity=User.class, parentColumns = "userid", childColumns = "userid")
+    @ForeignKey(entity=User.class, parentColumns = "userid", childColumns = "userid", onDelete = CASCADE)
     private String userid;
 
     @NonNull

@@ -1,5 +1,6 @@
 package net.austreelis.wishlisht.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,33 +9,45 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
+import net.austreelis.wishlisht.ProfileActivity;
 import net.austreelis.wishlisht.R;
+import net.austreelis.wishlisht.WishListCollectionActivity;
+import net.austreelis.wishlisht.entities.User;
 import net.austreelis.wishlisht.entities.WishList;
+import net.austreelis.wishlisht.interfaces.DAO.WishListDao;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 // Refactoring of code template fetched from official android documentation
 
 public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.MyViewHolder> {
 
-    private WishList[] dataset;
+    private ArrayList<WishList> dataset;
+    private User u, ou;
+    private WishListDao wldao;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
+
         private final TextView name, desc;
+        private View view;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.WishListName);
             desc = itemView.findViewById(R.id.WishListDesc);
+            view = itemView;
         }
     }
 
-    public WishListAdapter(WishList[] myDataset) {
+    public WishListAdapter(ArrayList<WishList> myDataset, User u, User ou, WishListDao dao) {
         dataset = myDataset;
+        this.u = u;
+        this.ou = ou;
+        this.wldao = dao;
     }
 
     @Override
@@ -45,13 +58,42 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.name.setText(dataset[position].getName());
-        holder.desc.setText(dataset[position].getDesc());
+
+        WishList currentWishList = dataset.get(position);
+
+        holder.name.setText(currentWishList.getName());
+        holder.desc.setText(currentWishList.getDesc());
+
+        holder.view.findViewById(R.id.goToWishButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(v.getContext(), ProfileActivity.class);
+                it.putExtra("current_wishlist",(new Gson()).toJson(currentWishList));
+                it.putExtra("user", (new Gson()).toJson(u));
+                it.putExtra("observed_user", (new Gson()).toJson(ou));
+                v.getContext().startActivity(it);
+            }
+        });
+
+        holder.view.findViewById(R.id.deleteWishlistButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wldao.delete(currentWishList);
+                dataset.remove(position);
+                updateDataSet(dataset);
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    public void updateDataSet(ArrayList<WishList> myDataset){
+        dataset = myDataset;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return dataset.length;
+        return dataset.size();
     }
 }
 

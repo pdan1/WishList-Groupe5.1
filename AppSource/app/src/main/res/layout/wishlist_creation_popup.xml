@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    tools:context=".WishListCollectionActivity"
     android:id="@+id/popupWindow">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/accent"
+                android:onClick="addWishList"
                 android:text="@string/saveButtonText" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

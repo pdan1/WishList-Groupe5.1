@@ -1,6 +1,7 @@
 package net.austreelis.wishlisht.entities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -44,5 +45,12 @@ public class WishList {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object o) {
+        if(!(o instanceof WishList))return false;
+        WishList wl = (WishList) o;
+        return this.getName().equals(wl.getName())&&this.getUserid().equals(wl.getUserid());
     }
 }

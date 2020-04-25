@@ -26,13 +26,14 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
     protected WishListRoomDatabase bdd;
     protected UserDao udao;
 
-    protected User u;
+    protected User u, ou; // u stands for User and ou for Observed User (useful to avoid duplication of similar views)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent it = getIntent();
         u = (new Gson()).fromJson(it.getStringExtra("user"), User.class);
+        ou = (new Gson()).fromJson(it.getStringExtra("observed_user"), User.class);
         bdd = WishListRoomDatabase.getDatabase(this);
         udao = bdd.userDao();
     }
@@ -49,12 +50,15 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
         dialogBox.setTextColor(getResources().getColor(R.color.success));
     }
 
+
+    // Current user is always the observed user when using the navbar
     public void navigateToFriends(View view) {
 
     }
 
     public void navigateToProfile(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
+        intent.putExtra("observed_user", (new Gson()).toJson(u));
         intent.putExtra("user", (new Gson()).toJson(u));
         startActivity(intent);
     }
@@ -62,10 +66,11 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
     public void navigateToWishLists(View view) {
         Intent intent = new Intent(this, WishListCollectionActivity.class);
         intent.putExtra("user", (new Gson()).toJson(u));
+        intent.putExtra("observed_user", (new Gson()).toJson(u));
         startActivity(intent);
     }
 
-    public void showPopup(View view, int popupid, boolean isJustMessage) {
+    public PopupWindow showPopup(View view, int popupid, boolean isJustMessage) {
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(popupid, null);
@@ -74,7 +79,6 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true;
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
         if(isJustMessage) {
@@ -93,6 +97,7 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
                 popupWindow.dismiss();
             }
         });
+        return popupWindow;
     }
 
 }

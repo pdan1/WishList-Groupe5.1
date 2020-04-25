@@ -28,8 +28,10 @@
     <string name="errorOccuredUpdate">An error occured - data not updated.</string>
     <string name="errorLoginDenied">Wrong password - login combinaison.</string>
     <string name="errorPasswordMissing">Please specify your password.</string>
+    <string name="errorAlreadyExists">This entry was already registered.</string>
 
     <string name="successUpdate">Informations were successfully updated !</string>
+    <string name="successCreation">A new entry was successfully created !</string>
 
     <string name="modifyButtonText">Modify</string>
 
@@ -37,5 +39,8 @@
 
     <string name="wishListNameFieldHint">Name</string>
     <string name="wishListDescFieldHint">Short description</string>
+
+    <string name="Acheter"><a href="http://www.google.com">Acheter</a></string>
+
 
 </resources>
