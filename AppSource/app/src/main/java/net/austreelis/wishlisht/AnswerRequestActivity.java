@@ -2,7 +2,6 @@ package net.austreelis.wishlisht;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
