@@ -17,6 +17,7 @@ import net.austreelis.wishlisht.WishListCollectionActivity;
 import net.austreelis.wishlisht.entities.User;
 import net.austreelis.wishlisht.entities.WishList;
 import net.austreelis.wishlisht.interfaces.DAO.WishListDao;
+import net.austreelis.wishlisht.view_holders.WishListViewHolder;
 
 import org.w3c.dom.Text;
 
@@ -24,45 +25,28 @@ import java.util.ArrayList;
 
 // Refactoring of code template fetched from official android documentation
 
-public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.MyViewHolder> {
+public class WishListAdapter extends GenericListAdapter<WishList, WishListDao, WishListViewHolder> {
 
-    private ArrayList<WishList> dataset;
-    private User u, ou;
-    private WishListDao wldao;
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-
-        private final TextView name, desc;
-        private View view;
-
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.WishListName);
-            desc = itemView.findViewById(R.id.WishListDesc);
-            view = itemView;
-        }
-    }
 
     public WishListAdapter(ArrayList<WishList> myDataset, User u, User ou, WishListDao dao) {
-        dataset = myDataset;
-        this.u = u;
-        this.ou = ou;
-        this.wldao = dao;
+        super(myDataset, u, ou, dao, ProfileActivity.class);
     }
 
     @Override
-    public WishListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WishListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wishlist_item, parent, false);
-        return new MyViewHolder(v);
+        return new WishListViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(WishListViewHolder holder, int position) {
 
         WishList currentWishList = dataset.get(position);
 
         holder.name.setText(currentWishList.getName());
         holder.desc.setText(currentWishList.getDesc());
+
+
 
         holder.view.findViewById(R.id.goToWishButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +62,7 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.MyView
         holder.view.findViewById(R.id.deleteWishlistButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wldao.delete(currentWishList);
+                dao.delete(currentWishList);
                 dataset.remove(position);
                 updateDataSet(dataset);
                 notifyDataSetChanged();
@@ -86,14 +70,5 @@ public class WishListAdapter extends RecyclerView.Adapter<WishListAdapter.MyView
         });
     }
 
-    public void updateDataSet(ArrayList<WishList> myDataset){
-        dataset = myDataset;
-        notifyDataSetChanged();
-    }
-
-    @Override
-    public int getItemCount() {
-        return dataset.size();
-    }
 }
 
