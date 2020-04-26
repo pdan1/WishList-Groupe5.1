@@ -49,6 +49,12 @@ abstract class MainActivity extends AppCompatActivity implements DialogBoxInterf
         startActivity(intent);
     }
 
+    public void navigateToRequests(View view) {
+        Intent intent = new Intent(this, AnswerRequestActivity.class);
+        intent.putExtra("user", (new Gson()).toJson(u));
+        startActivity(intent);
+    }
+
     public void navigateToAddFriends(View view) {
         Intent intent = new Intent(this, FriendsActivity.class);
         intent.putExtra("user", (new Gson()).toJson(u));

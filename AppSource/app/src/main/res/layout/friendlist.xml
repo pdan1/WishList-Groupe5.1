@@ -13,7 +13,7 @@
     <ListView
         android:id="@+id/FList"
         android:layout_width="match_parent"
-        android:layout_height="523dp" />
+        android:layout_height="450dp" />
 
     <Button
         android:id="@+id/button2"
@@ -21,6 +21,13 @@
         android:layout_height="wrap_content"
         android:onClick="navigateToAddFriends"
         android:text="Add a friend" />
+
+    <Button
+        android:id="@+id/requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="navigateToRequests"
+        android:text="View Requests" />
 
 
 </LinearLayout>

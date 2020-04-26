@@ -2,12 +2,13 @@ package net.austreelis.wishlisht;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import net.austreelis.wishlisht.Room.WishListRoomDatabase;
+import net.austreelis.wishlisht.adapters.RequestAdapter;
 import net.austreelis.wishlisht.entities.User;
 import net.austreelis.wishlisht.interfaces.DAO.FriendshipDao;
 
@@ -15,12 +16,9 @@ import java.util.ArrayList;
 
 public class AnswerRequestActivity extends MainActivity {
     User[] users;
-    ArrayList<String> pending;
-    ArrayList<String> all;
-    ArrayAdapter<String> adapter;
-    ArrayAdapter<String> adapterAll;
-    ListView list;
-    ListView listAll;
+    ArrayList<User> pending;
+    RequestAdapter adapter;
+    RecyclerView list;
     protected FriendshipDao friendshipDao;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,40 +31,26 @@ public class AnswerRequestActivity extends MainActivity {
         setSupportActionBar(toolbar);
 
         list = findViewById(R.id.listOfRequests);
-        listAll = findViewById(R.id.allUsers);
 
         pending = new ArrayList<>();
-        all = new ArrayList<>();
 
         users = this.udao.loadAllUsers();
 
-        list.setClickable(true);
-        list.setOnItemClickListener((arg0, arg1, position, arg3) -> {
-            Object o = list.getItemAtPosition(position);
-            System.out.println(o.toString());
-            friendshipDao.setFriendStatus(u.getUserid(),o.toString(),"approved");
-        });
-
         for (User user : users) {
-            if(friendshipDao.loadFriendshipStatus(u.getName(), user.getName()).equals("pending")) {
-                pending.add(user.getName());
+            String friendship = friendshipDao.loadFriendshipStatus(u.getName(), user.getName());
+            if(friendship != null && friendship.equals("pending")) {
+                pending.add(user);
             }
         }
-        adapter=new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                pending);
+        adapter=new RequestAdapter(pending);
         list.setAdapter(adapter);
-
-        for (User user : users) {
-            all.add(user.getName().concat((u.getName().equals(user.getName()))?" (you)":""));
-        }
-        adapterAll=new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                all);
-        listAll.setAdapter(adapterAll);
+        list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
-    public void answer(View view) {
-
+    public void accept(View view) {
+        System.out.println("accept pressed");
+    }
+    public void deny(View view) {
+        System.out.println("deny pressed");
     }
 }

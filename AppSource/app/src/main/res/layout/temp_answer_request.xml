@@ -22,29 +22,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="All Users" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/allUsers"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pending Requests" />
 
-            <ListView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listOfRequests"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:isScrollContainer="false">
+                android:layout_height="match_parent" />
 
-            </ListView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
